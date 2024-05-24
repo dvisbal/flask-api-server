@@ -19,14 +19,14 @@ def redirect_to_here(example_url_parameter):
     example_of_saving_a_global_variable_that_can_be_shared_between_requests.append(
         example_of_saving_a_global_variable_that_can_be_shared_between_requests[-1] + 1
     )
-    return json.dumps({
+    return (json.dumps({
         "This route is converting a dict to json": {
             "And this is a string that was passed from the original url to the redirect url as a url parameter": 
                 example_url_parameter
         },
         "example_of_saving_a_global_variable_that_can_be_shared_between_requests": 
             example_of_saving_a_global_variable_that_can_be_shared_between_requests
-    })
+    }), {'Content-Type': 'application/json'})
 
 @app.route('/reset')
 def reset():
